@@ -1,0 +1,17 @@
+
+task_env/
+
+
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.sqlite3
+
+
+.vscode/
+.idea/
+
+
+.DS_Store
+Thumbs.db

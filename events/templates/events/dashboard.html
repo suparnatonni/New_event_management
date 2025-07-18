@@ -1,0 +1,49 @@
+{% extends 'events/base.html' %}
+{% block content %}
+
+<h1 class="text-2xl font-bold mb-6">Organizer Dashboard</h1>
+
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+    <a href="?filter=all" class="bg-blue-500 hover:bg-blue-600 text-white p-4 rounded shadow text-center">
+        <div class="text-xl font-bold">{{ total_events }}</div>
+        <div>Total Events</div>
+    </a>
+    <a href="?filter=upcoming" class="bg-green-500 hover:bg-green-600 text-white p-4 rounded shadow text-center">
+        <div class="text-xl font-bold">{{ upcoming_events }}</div>
+        <div>Upcoming Events</div>
+    </a>
+    <a href="?filter=past" class="bg-red-500 hover:bg-red-600 text-white p-4 rounded shadow text-center">
+        <div class="text-xl font-bold">{{ past_events }}</div>
+        <div>Past Events</div>
+    </a>
+    <div class="bg-yellow-500 text-white p-4 rounded shadow text-center">
+        <div class="text-xl font-bold">{{ total_participants }}</div>
+        <div>Total Participants</div>
+    </div>
+</div>
+
+<h2 class="text-xl font-semibold mb-2">Today's Events</h2>
+<ul class="mb-6">
+    {% for event in todays_events %}
+    <li class="bg-white rounded shadow p-3 my-2">
+        <strong>{{ event.name }}</strong> – {{ event.time }}
+    </li>
+    {% empty %}
+    <li>No events today.</li>
+    {% endfor %}
+</ul>
+
+<h2 class="text-xl font-semibold mb-2">
+    {% if filter_type == 'upcoming' %}Upcoming{% elif filter_type == 'past' %}Past{% else %}All{% endif %} Events
+</h2>
+<ul>
+    {% for event in filtered_events %}
+    <li class="bg-white rounded shadow p-3 my-2">
+        <strong>{{ event.name }}</strong> – {{ event.date }}
+    </li>
+    {% empty %}
+    <li>No events found.</li>
+    {% endfor %}
+</ul>
+
+{% endblock %}
