@@ -9,9 +9,4 @@ __pycache__/
 *.sqlite3
 
 
-.vscode/
-.idea/
 
-
-.DS_Store
-Thumbs.db
