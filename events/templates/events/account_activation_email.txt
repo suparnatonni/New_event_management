@@ -1,0 +1,1 @@
+Hi {{ user.username }},\nActivate: http://{{ domain }}{% url 'events:activate' uidb64=uid token=token %}\n

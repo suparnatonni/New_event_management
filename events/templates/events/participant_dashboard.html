@@ -1,0 +1,1 @@
+<h2>Your RSVPed Events</h2>{% for e in events %}<div>{{ e.name }} - {{ e.date }}</div>{% empty %}<p>No RSVPs yet.</p>{% endfor %}
