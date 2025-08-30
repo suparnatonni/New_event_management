@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h2 class="text-2xl mb-4">Search Results for "{{ query }}"</h2>
+
+<ul>
+  {% for event in results %}
+    <li class="bg-gray-100 p-2 my-2 rounded">
+      {{ event.name }} - {{ event.location }} ({{ event.date }})
+    </li>
+  {% empty %}
+    <li>No events found.</li>
+  {% endfor %}
+</ul>
+
+{% endblock %}
